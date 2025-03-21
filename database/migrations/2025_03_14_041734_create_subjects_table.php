@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 255); // Thêm cột name
-            $table->text('description')->nullable(); // Thêm cột description (cho phép null)
-            $table->timestamps();
-        });
+        if (!Schema::hasTable("")) {
+            Schema::create('subjects', function (Blueprint $table) {
+                $table->id();
+                $table->string('name', 255); // Thêm cột name
+                $table->text('description')->nullable(); // Thêm cột description (cho phép null)
+                $table->timestamps();
+            });
+        }
+        
     }
 
     /**

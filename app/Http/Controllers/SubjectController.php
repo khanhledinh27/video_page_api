@@ -36,7 +36,6 @@ class SubjectController extends Controller
         $imagePath = null;
         if ($request->hasFile('thumbnail')) { 
             $imagePath = $request->file('thumbnail')->store('thumbnails', 'public');
-            \Log::info('Generated image path:', ['path' => $imagePath]); // Debug đường dẫn ảnh
         }
 
         if ($validator->fails()) {
